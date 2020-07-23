@@ -17,7 +17,8 @@ public class CameraMovement : MonoBehaviour
          
         if (PlayerMovement.gamestarted)
         {
-            this.transform.Translate(Vector2.right * .1f);
+            this.transform.Translate(Vector2.right * (Time.deltaTime * 20f));
+
         }
     }
 }

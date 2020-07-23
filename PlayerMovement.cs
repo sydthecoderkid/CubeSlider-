@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
      public static Rigidbody2D playercomponent = new Rigidbody2D();
 
-     public float playerspeed = .1f;
+     public float playerspeed = 20f;
 
      public static bool gamestarted;
 
@@ -38,10 +38,10 @@ public class PlayerMovement : MonoBehaviour
          */
 
         if (gamestarted){
-            this.transform.Translate(Vector2.right * playerspeed);
+            this.transform.Translate(Vector2.right * (Time.deltaTime * playerspeed));
             if (onground)
             {
-                 playerspeed = .1f;
+                 playerspeed = 20f;
                 canjump = true;
                 jumped = false;
                 candoublejump = false;
@@ -64,24 +64,24 @@ public class PlayerMovement : MonoBehaviour
                     canjump = false;
                     candoublejump = true;
                     onground = false; //Signals the player has jumped, so they are no longer on the ground 
-                    playerspeed = .101f;
+                    playerspeed = 20.1f;
                 }
 
                else if(!onground && candoublejump)
                 {
                     playercomponent.velocity = new Vector2(playercomponent.velocity.x, 0);
-                    playercomponent.AddForce(transform.up * thrust);
-                    playerspeed = .101f;
+                    if (transform.position.y < 5)
+                    {
+                        playercomponent.AddForce(transform.up * thrust);
+                    }
+                    playerspeed = 20f;
                     candoublejump = false;
                     onground = false;
                 }
 
             }
 
-            if (Input.GetMouseButtonUp(0))
-            {
-                playerspeed = .1f;
-            }
+            
         }
 
         
