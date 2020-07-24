@@ -32,10 +32,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        /*TO DO
-         * Add double jump- increase thrust on second jump
-         * 
-         */
+         
 
         if (gamestarted){
             this.transform.Translate(Vector2.right * (Time.deltaTime * playerspeed));
