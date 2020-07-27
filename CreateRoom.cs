@@ -25,8 +25,7 @@ public class CreateRoom : MonoBehaviour
 
     public static bool firstroom = true;
 
-    public GameObject turret; 
-
+    public GameObject turret;
     // Start is called before the first frame update
     void Start()
     {

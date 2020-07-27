@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
          
 
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetMouseButtonDown(0))
             {
                 
                 if (onground)
