@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,24 +25,34 @@ public class CreateRoom : MonoBehaviour
 
     public static bool firstroom = true;
 
+    public GameObject turret; 
+
     // Start is called before the first frame update
     void Start()
     {
+        turret.SetActive(false);
         if (!firstroom)
         {
             createtiles();
+            spawnturrets();
         }
         
         
     }
 
+    private void spawnturrets()
+    {
+        int randomturret = random.Next(4);
+        if(randomturret == 1)
+        {
+            turret.SetActive(true);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        /*TO DO
-         * Randomly select from an array of tiles, and pick their type. Picking lava makes the next tile lava(unless it's the last one) 
-         * but a tile can also be have an enemy cylinder, or a cube to jump over. First two can't be in the array.
-         */
+         
         if(playepos.transform.position.x > (this.transform.position.x) && PlayerMovement.gamestarted)
         {
             makeroom();
@@ -96,7 +107,7 @@ public class CreateRoom : MonoBehaviour
         int tilenumber = random.Next(4);
         int longlava = random.Next(5);
 
-        if(tilenumber != 3) //Last value in the array. This is done because the lava always comes in pairs of two or more.
+        if(tilenumber != 3) //Assigns tile if it's not the last value in the array. This is done because the lava always comes in pairs of two or more.
         {
             tiles[tilenumber].GetComponent<TileType>().thistile = assigntiletype();
         }
@@ -112,12 +123,21 @@ public class CreateRoom : MonoBehaviour
             haslava = true;
         }
 
-        if(tilenumber == 3)
-        {
-             tiles[tilenumber].GetComponent<TileType>().thistile = TileType.Tiletype.EnemyTile;
+                if (tiles[3].GetComponent<TileType>().thistile == TileType.Tiletype.NormalTile)
+                {
+                     int enemytile = random.Next(3);
+                     if(enemytile == 1)
+                     {
+                          tiles[3].GetComponent<TileType>().thistile = TileType.Tiletype.EnemyTile;
+                     }
 
-            
+                  if (enemytile == 2)
+                  {
+                      tiles[0].GetComponent<TileType>().thistile = TileType.Tiletype.EnemyTile;
+                  }
+
         }
+        
 
         
 
