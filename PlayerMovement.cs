@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     public static bool candoublejump = false;
 
-    private static float playery = -2.62f;
+    private static float playery = -2.5f;
 
 
     // Start is called before the first frame update
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
          
 
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 
                 if (onground)

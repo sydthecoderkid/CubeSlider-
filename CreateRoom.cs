@@ -96,7 +96,7 @@ public class CreateRoom : MonoBehaviour
         int tilenumber = random.Next(4);
         int longlava = random.Next(5);
 
-        if(tilenumber != 3)
+        if(tilenumber != 3) //Last value in the array. This is done because the lava always comes in pairs of two or more.
         {
             tiles[tilenumber].GetComponent<TileType>().thistile = assigntiletype();
         }
@@ -110,10 +110,20 @@ public class CreateRoom : MonoBehaviour
                 tiles[tilenumber + 2].GetComponent<TileType>().thistile = TileType.Tiletype.LavaTile; //20% change that there will be a long lava block
             }
             haslava = true;
-            }
+        }
+
+        if(tilenumber == 3)
+        {
+             tiles[tilenumber].GetComponent<TileType>().thistile = TileType.Tiletype.EnemyTile;
+
             
-            
+        }
+
         
+
+
+
+
     }
 
 
