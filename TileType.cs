@@ -8,6 +8,7 @@ public class TileType : MonoBehaviour
 {
     public Tiletype thistile = Tiletype.NormalTile;
     public int timeswritten = 0;
+    bool islava =false;
 
     public enum Tiletype
     {
@@ -30,17 +31,41 @@ public class TileType : MonoBehaviour
             SpriteRenderer thiscolor = this.GetComponent<SpriteRenderer>();
 
             transform.position = new Vector2(this.transform.position.x, -4.8f);
-
+            islava = true;
             thiscolor.color = Color.red;
+            
         }
 
-        if (thistile != Tiletype.LavaTile)
+        else if (thistile == Tiletype.NormalTile)
         {
             SpriteRenderer thiscolor = this.GetComponent<SpriteRenderer>();
             transform.position = new Vector2(this.transform.position.x, -4.03f);
+
             thiscolor.color = new Color32(195, 195, 195, 255);
         }
 
+       else if (thistile == Tiletype.EnemyTile)
+        {
+            SpriteRenderer thiscolor = this.GetComponent<SpriteRenderer>();
+            transform.position = new Vector2(this.transform.position.x, -4.03f);
 
+            thiscolor.color = Color.green;
+        }
+
+
+
+
+
+    }
+
+
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (islava)
+        {
+             GameOver.EndGame();
+
+        }
     }
 }

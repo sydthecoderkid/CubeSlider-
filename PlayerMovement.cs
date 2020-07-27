@@ -20,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
 
     public static bool candoublejump = false;
 
-    
+    private static float playery = -2.62f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +34,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-         
+         if(this.transform.position.y < playery)
+        {
+            playercomponent.gravityScale = 5f;
+        }
 
-        if (gamestarted){
+        if (gamestarted && !GameOver.gameover){
             this.transform.Translate(Vector2.right * (Time.deltaTime * playerspeed));
             if (onground)
             {
@@ -46,10 +51,15 @@ public class PlayerMovement : MonoBehaviour
 
           else if (!onground)
             {
-                playercomponent.gravityScale = 2f; //Pulls the cube back to earth quicker 
+                playercomponent.gravityScale = 2.5f; //Pulls the cube back to earth quicker //og: 2
 
             }
- 
+
+           
+
+
+         
+
 
             if (Input.GetMouseButtonDown(0))
             {

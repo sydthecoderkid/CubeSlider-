@@ -15,7 +15,7 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
          
-        if (PlayerMovement.gamestarted)
+        if (PlayerMovement.gamestarted && !GameOver.gameover)
         {
             this.transform.Translate(Vector2.right * (Time.deltaTime * 20f));
 

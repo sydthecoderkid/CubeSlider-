@@ -23,7 +23,7 @@ public class OnGround : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (PlayerMovement.jumped)
+        if (PlayerMovement.jumped )
         {
             PlayerMovement.onground = false;
         }
