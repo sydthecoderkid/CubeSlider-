@@ -9,6 +9,8 @@ public class TileType : MonoBehaviour
     public Tiletype thistile = Tiletype.NormalTile;
     public int timeswritten = 0;
     bool islava =false;
+    public GameObject enemy;
+    private bool spawnedenemy;
 
     public enum Tiletype
     {
@@ -48,7 +50,10 @@ public class TileType : MonoBehaviour
         {
             SpriteRenderer thiscolor = this.GetComponent<SpriteRenderer>();
             transform.position = new Vector2(this.transform.position.x, -4.03f);
-
+            if (!spawnedenemy)
+            {
+                createenemy();
+            }
             thiscolor.color = Color.green;
         }
 
@@ -58,7 +63,11 @@ public class TileType : MonoBehaviour
 
     }
 
-
+    private void createenemy()
+    {
+        Instantiate(enemy, transform);
+        spawnedenemy = true;
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
