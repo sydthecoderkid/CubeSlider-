@@ -55,7 +55,7 @@ public class TileType : MonoBehaviour
             {
                 createenemy();
             }
-            thiscolor.color = Color.green;
+            thiscolor.color = new Color32(195, 195, 195, 255);
         }
 
         
