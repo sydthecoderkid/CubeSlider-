@@ -57,7 +57,7 @@ public class CreateRoom : MonoBehaviour
             makeroom();
         }
 
-       if(roombuilt && playepos.transform.position.x > lasttile.transform.position.x + 8)
+       if(roombuilt && playepos.transform.position.x > lasttile.transform.position.x + 8) //OG plus 8
         {
             Destroy(thisroom);
             roombuilt = false;

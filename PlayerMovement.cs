@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     private static float playery = -2.5f;
 
 
+    public static float playerx;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
         {
             playercomponent.gravityScale = 5f;
         }
+
+        playerx = playercomponent.transform.position.x;
 
         if (gamestarted && !GameOver.gameover){
             this.transform.Translate(Vector2.right * (Time.deltaTime * playerspeed));

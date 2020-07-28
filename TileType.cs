@@ -7,10 +7,11 @@ using UnityEngine;
 public class TileType : MonoBehaviour
 {
     public Tiletype thistile = Tiletype.NormalTile;
-    public int timeswritten = 0;
     bool islava =false;
     public GameObject enemy;
     private bool spawnedenemy;
+    public static bool destroyenemy = false;
+    private GameObject enemyclone;
 
     public enum Tiletype
     {
@@ -57,15 +58,13 @@ public class TileType : MonoBehaviour
             thiscolor.color = Color.green;
         }
 
-
-
-
-
+        
     }
 
     private void createenemy()
     {
-        Instantiate(enemy, transform);
+        Vector2 enemypos = new Vector2(this.transform.position.x + 6, this.transform.position.y + 10f);
+       enemyclone =  Instantiate(enemy, enemypos, Quaternion.identity);
         spawnedenemy = true;
     }
 
@@ -77,4 +76,6 @@ public class TileType : MonoBehaviour
 
         }
     }
+
+    
 }
