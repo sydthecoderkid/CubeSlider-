@@ -45,7 +45,9 @@ public class PlayerMovement : MonoBehaviour
         playerx = playercomponent.transform.position.x;
 
         if (gamestarted && !GameOver.gameover){
-            this.transform.Translate(Vector2.right * (Time.deltaTime * playerspeed));
+
+            //this.transform.Translate(Vector2.right * (Time.deltaTime * playerspeed));
+
             if (onground)
             {
                  playerspeed = 15f;
