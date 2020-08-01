@@ -7,6 +7,10 @@ public class FireGun : MonoBehaviour
 {
     public GameObject bullet; 
    public GameObject gunstock;
+
+    public GameObject parent;
+
+    public static bool lookingdown;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +22,8 @@ public class FireGun : MonoBehaviour
     {
         
         if(Input.GetMouseButtonDown(1)){
-           Instantiate(bullet, gunstock.transform.position, transform.rotation * Quaternion.Euler (0f, 180f,0));
+            Vector2 tempspawn = new Vector2(gunstock.transform.position.x + .4f, gunstock.transform.position.y);
+           Instantiate(bullet, tempspawn, parent.transform.rotation * Quaternion.Euler (0f, 0f,449.239f));
         }
         
     }

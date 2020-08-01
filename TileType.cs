@@ -70,7 +70,7 @@ public class TileType : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (islava)
+        if (islava && collision.gameObject.tag.Equals("Player"))
         {
              GameOver.EndGame();
 

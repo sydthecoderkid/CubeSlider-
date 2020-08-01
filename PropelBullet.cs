@@ -13,6 +13,18 @@ public class PropelBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 440);
+         float countdown = 0;
+         
+         countdown += Time.deltaTime;
+
+         if(countdown > 2){
+               Destroy(this.gameObject);
+         } 
+         this.transform.Translate(Vector2.down * (Time.deltaTime * 90));
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        Destroy(this.gameObject);
     }
 }
