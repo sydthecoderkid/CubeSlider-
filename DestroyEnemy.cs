@@ -35,11 +35,11 @@ public GameObject barrel;
 
          if(dead){
              counter += Time.deltaTime;
-             this.transform.position = new Vector2(this.transform.position.x, oldy);
-             death.Play();
+              death.Play();
+            
          }
 
-         if(counter >= 2f){
+         if(counter >= 9f){
             Destroy(thisenemy);
          }
     }
@@ -47,13 +47,16 @@ public GameObject barrel;
     private void OnCollisionEnter2D(Collision2D other) {
         
        if(other.gameObject.name.Contains("Bullet")){
-            dead = true;
+           thisenemy.gameObject.GetComponent<Collider2D>().enabled = false;
+           death.Play();
             barrel.SetActive(false);
            tophalf.SetActive(false);
-        //   bottomhalf.GetComponent<Collider2D>().enabled = false;
-        oldy = this.transform.position.y;
-          thisenemy.GetComponent<Collider2D>().enabled = false;
            stock.SetActive(false);
+           
+       }
+
+       else if(other.gameObject.name.Equals("Player")){
+           GameOver.EndGame();
        }
     }
 

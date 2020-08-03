@@ -142,7 +142,7 @@ public class CreateRoom : MonoBehaviour
                       tiles[0].GetComponent<TileType>().thistile = TileType.Tiletype.EnemyTile;
                   }
 
-        }
+                 }
         
 
         
