@@ -14,6 +14,8 @@ public class FireGun : MonoBehaviour
 
     public float shottimer = 0;
     public float yholder = 0;
+
+    public ParticleSystem explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +26,14 @@ public class FireGun : MonoBehaviour
     void Update()
     {
         shottimer += Time.deltaTime;
-        if(Input.GetMouseButtonDown(1) && shottimer >= 0.5f){
-            Vector2 tempspawn = new Vector2(gunstock.transform.position.x + .4f, gunstock.transform.position.y);
+        if(Input.GetMouseButtonDown(1) && shottimer >= 0.2f){
+            Vector2 tempspawn = new Vector2(gunstock.transform.position.x, gunstock.transform.position.y);
             float rotationamount = 0;
-            for(int i = 0; i <=4; i++){
-                rotationamount = (float) (449.239);
+            for(int i = 0; i < 5; i++){
+                rotationamount = (float) (449.239 + (i * 5));
                 yholder += (tempspawn.y + 10) ;
-               Instantiate(bullet, tempspawn, parent.transform.rotation * Quaternion.Euler (0f, yholder,rotationamount));
+               Instantiate(bullet, tempspawn, parent.transform.rotation * Quaternion.Euler (0f, 0,rotationamount));
+               explosion.Play();
             }
             shottimer = 0;
         }

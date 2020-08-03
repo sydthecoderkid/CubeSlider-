@@ -19,12 +19,14 @@ public class PropelBullet : MonoBehaviour
          
          countdown += Time.deltaTime;
 
-         if(countdown > 2){
-               Destroy(thisbullet);
-         } 
-         this.transform.Translate(Vector2.down * (Time.deltaTime * 70));
+         if(countdown >= .2){
+            Destroy(thisbullet);
+         }
+         this.transform.Translate(Vector2.down * (Time.deltaTime * 70f));
         
     }
 
-    
+
+
+     
 }
