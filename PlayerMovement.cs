@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public static bool canjump = true;
 
-    private float thrust = 480f; //If increasing player speed, thrust must be adjusted
+    private float thrust = 500; //If increasing player speed, thrust must be adjusted
 
     public static bool onground = false;
 
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (gamestarted && !GameOver.gameover){
 
-            this.transform.Translate(Vector2.right * (Time.deltaTime * 15));
+         //   this.transform.Translate(Vector2.right * (Time.deltaTime * 15)); //This line moves theplayer
 
             if (onground)
             {
@@ -84,11 +84,10 @@ public class PlayerMovement : MonoBehaviour
                else if(!onground && candoublejump)
                 {
                     playercomponent.velocity = new Vector2(playercomponent.velocity.x, 0);
-                    if (transform.position.y < 5)
-                    {
-                        playercomponent.AddForce(transform.up * (thrust + 10));
-                    }
-                    playerspeed = 15.1f;
+                    
+                        playercomponent.AddForce(transform.up * (thrust + 150));
+                    
+                    playerspeed = 15.9f;
                     candoublejump = false;
                     onground = false;
                 }

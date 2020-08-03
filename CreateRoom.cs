@@ -26,10 +26,13 @@ public class CreateRoom : MonoBehaviour
     public static bool firstroom = true;
 
     public GameObject turret;
+
+    public GameObject turrettwo;
     // Start is called before the first frame update
     void Start()
     {
         turret.SetActive(false);
+        turrettwo.SetActive(false);
         if (!firstroom)
         {
             createtiles();
@@ -41,10 +44,14 @@ public class CreateRoom : MonoBehaviour
 
     private void spawnturrets()
     {
-        int randomturret = random.Next(4);
-        if(randomturret == 1)
+        int randomturret = random.Next(8);
+        if(randomturret == 1 || randomturret == 2)
         {
             turret.SetActive(true);
+        }
+
+        if(randomturret == 3 || randomturret == 4){
+            turrettwo.SetActive(true);
         }
     }
 
@@ -106,7 +113,7 @@ public class CreateRoom : MonoBehaviour
         int tilenumber = random.Next(4);
         int longlava = random.Next(5);
 
-        if(tilenumber != 3) //Assigns tile if it's not the last value in the array. This is done because the lava always comes in pairs of two or more.
+        if(tilenumber != tiles.Length-1 && !haslava) //Assigns tile if it's not the last value in the array. This is done because the lava always comes in pairs of two or more.
         {
             tiles[tilenumber].GetComponent<TileType>().thistile = assigntiletype();
         }
