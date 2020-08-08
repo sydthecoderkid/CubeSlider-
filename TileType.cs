@@ -32,8 +32,8 @@ public class TileType : MonoBehaviour
         if(thistile == Tiletype.LavaTile)
         {
             SpriteRenderer thiscolor = this.GetComponent<SpriteRenderer>();
-
-            transform.position = new Vector2(this.transform.position.x, -4.8f);
+             
+             transform.position = new Vector2(this.transform.position.x, -4.8f);
             islava = true;
             thiscolor.color = Color.red;
             
