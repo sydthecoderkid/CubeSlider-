@@ -14,7 +14,7 @@ public class DestroyEnemy : MonoBehaviour
 
     public float counter;
 
-    private bool dead;
+    public bool dead = false;
 
     private float oldy = 0;
 
@@ -35,7 +35,6 @@ public GameObject barrel;
 
          if(dead){
              counter += Time.deltaTime;
-              death.Play();
             
          }
 
@@ -45,13 +44,15 @@ public GameObject barrel;
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        
        if(other.gameObject.name.Contains("Bullet")){
+
+           dead = true;
            thisenemy.gameObject.GetComponent<Collider2D>().enabled = false;
-           death.Play();
             barrel.SetActive(false);
            tophalf.SetActive(false);
            stock.SetActive(false);
+               death.Play();           
+
            
        }
 

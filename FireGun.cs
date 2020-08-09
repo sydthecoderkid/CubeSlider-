@@ -17,10 +17,12 @@ public class FireGun : MonoBehaviour
 
     public ParticleSystem explosion;
     public GameObject camerashaker;
+
+    public CameraShake camerashakin;
     // Start is called before the first frame update
     void Start()
     {
-       
+           camerashakin = camerashaker.GetComponent<CameraShake>();
     }
      
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class FireGun : MonoBehaviour
             Vector2 tempspawn = new Vector2(gunstock.transform.position.x, gunstock.transform.position.y);
             float rotationamount = 0;
             bool shaking = true;
-            camerashaker.GetComponent<CameraShake>().shakecamera(shaking);
+            camerashakin.shakecamera(shaking);
              for(int i = 0; i < 5; i++){
                 rotationamount = (float) (449.239 + (i * 5));
                 yholder += (tempspawn.y + 10) ;
