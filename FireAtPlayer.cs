@@ -43,8 +43,8 @@ public class FireAtPlayer : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         }
       
-    
-    if(timer >= .7f && !destroyenemyscript.dead && (this.transform.position.x - (player.transform.position.x) < 15)){
+        //takes care of the shooting
+    if(PlayerMovement.gamestarted && timer >= .7f && !destroyenemyscript.dead && (this.transform.position.x - (player.transform.position.x) < 15)){
              float rotationamount = -100;
              if(!PlayerMovement.candoublejump && !PlayerMovement.onground){
                  rotationamount = -110;

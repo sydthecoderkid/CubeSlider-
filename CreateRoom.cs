@@ -28,11 +28,17 @@ public class CreateRoom : MonoBehaviour
     public GameObject turret;
 
     public GameObject turrettwo;
+
+    public GameObject shooterone;
+
+    public GameObject shootertwo;
     // Start is called before the first frame update
     void Start()
     {
         turret.SetActive(false);
         turrettwo.SetActive(false);
+        shooterone.SetActive(false);
+        shootertwo.SetActive(false);
         if (!firstroom)
         {
             createtiles();
@@ -48,10 +54,12 @@ public class CreateRoom : MonoBehaviour
         if(randomturret == 1 || randomturret == 2)
         {
             turret.SetActive(true);
+            shooterone.SetActive(true);
         }
 
         if(randomturret == 3 || randomturret == 4){
             turrettwo.SetActive(true);
+            shootertwo.SetActive(true);
         }
     }
 
