@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (gamestarted && !GameOver.gameover){
 
-          //this.transform.Translate(Vector2.right * (Time.deltaTime * 15)); //This line moves theplayer
+         this.transform.Translate(Vector2.right * (Time.deltaTime * 15)); //This line moves theplayer
 
             if (onground)
             {
