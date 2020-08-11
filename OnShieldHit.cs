@@ -29,7 +29,11 @@ public class OnShieldHit : MonoBehaviour
     }
 
      private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.name.Contains("Bullet") && !other.gameObject.name.Contains("Player")){
+         if(PlayerMovement.onground && this.gameObject.name.Equals("Shield (3)")){
+                   thisrenderer.color = originalcolor; 
+            }
+
+      else if(other.gameObject.name.Contains("Bullet") && !other.gameObject.name.Contains("Player")){
             thisrenderer.color = Color.green;
             Destroy(other.gameObject);
           }
