@@ -10,24 +10,29 @@ public class TurretFire : MonoBehaviour
 
     public GameObject enemybullet;
 
+    public static bool deadturret = false; 
+
     float timer;
-    // Start is called before the first frame update
+
+     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        deadturret = false;
     }
 
     // Update is called once per frame
     void Update()
     {
          timer += Time.deltaTime;
-         if(timer >= 1){
+         if(timer >= 1 && PlayerMovement.gamestarted && !deadturret){
         Vector2 tempspawn = new Vector2(shooter.transform.position.x, shooter.transform.position.y - 1);
      Instantiate(enemybullet, tempspawn, shooter.transform.rotation * Quaternion.Euler (0f, 0,180));
      timer = 0;
          }
      }
 
+     
      
        
 }

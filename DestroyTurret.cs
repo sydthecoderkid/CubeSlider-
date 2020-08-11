@@ -9,11 +9,14 @@ public class DestroyTurret : MonoBehaviour
     public GameObject turrtepiecetwo;
 
     public ParticleSystem blownup;
+
+    public bool dead;
     // Start is called before the first frame update
     void Start()
     {
         turretpieceone.SetActive(true);
         turrtepiecetwo.SetActive(true);
+        dead = false;
     }
 
     // Update is called once per frame
@@ -26,6 +29,8 @@ public class DestroyTurret : MonoBehaviour
        if(other.gameObject.name.Contains("Bullet")){
          turretpieceone.SetActive(false);
           turrtepiecetwo.SetActive(false);
+          TurretFire.deadturret = true;
+          dead = true;
           blownup.Play();
        }
     }

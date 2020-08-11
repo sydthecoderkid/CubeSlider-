@@ -17,9 +17,12 @@ public class OnPlayerHit : MonoBehaviour
     }
 
       private void OnTriggerEnter2D(Collider2D other) {
-          if(other.gameObject.name.Equals("Player")){
-                  Debug.Log("Hit something");
+
+          if(other.gameObject.name.Contains("Player") && !ShieldActivate.shieldactive){
+                  Destroy(this.gameObject);
           }
+
+         
       
     }
 }

@@ -72,7 +72,7 @@ public class CreateRoom : MonoBehaviour
             makeroom();
         }
 
-       if(roombuilt && playepos.transform.position.x > lasttile.transform.position.x + 8) //OG plus 8
+       if(roombuilt && playepos.transform.position.x > lasttile.transform.position.x + 8) //Last tile plus 8 to make sure the player doesn't see the room being destroyed
         {
             Destroy(thisroom);
             roombuilt = false;
@@ -110,7 +110,7 @@ public class CreateRoom : MonoBehaviour
     {
         /*Explanation: This method sets all the tiles type to normal tiles, then randomly selects a tile from the array of tiles in the room. If the 
          *tile isn't the last in the array, it sets that tile and the one next to it as lava. There's also a 1/5 chance of a "long lava"
-         * which occurs if the tile selected is the first or second one. Then the next three tiles will become lava. 
+         * which occurs if the tile selected is the first or second one. Then the next three tiles will become lava as well. 
          * 
          * */
         for(int i = 0; i < tiles.Length; i++)
@@ -125,7 +125,8 @@ public class CreateRoom : MonoBehaviour
         {
             tiles[tilenumber].GetComponent<TileType>().thistile = assigntiletype();
         }
-        if (tiles[tilenumber].GetComponent<TileType>().thistile == TileType.Tiletype.LavaTile && tilenumber != 3 && !haslava)
+
+        if (tiles[tilenumber].GetComponent<TileType>().thistile == TileType.Tiletype.LavaTile && tilenumber != tiles.Length-1 && !haslava)
              {
            
              tiles[tilenumber + 1].GetComponent<TileType>().thistile = TileType.Tiletype.LavaTile;
@@ -151,13 +152,6 @@ public class CreateRoom : MonoBehaviour
                   }
 
                  }
-        
-
-        
-
-
-
-
     }
 
 
