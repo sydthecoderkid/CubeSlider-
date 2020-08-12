@@ -22,7 +22,7 @@ public class OnShieldHit : MonoBehaviour
         if(thisrenderer.color == Color.green){
             timer += Time.deltaTime;
         }
-        if(timer >= 0.3){
+        if(timer >= 0.1){
             timer = 0;
             thisrenderer.color = originalcolor;
         }

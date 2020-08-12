@@ -29,8 +29,7 @@ public class DestroyTurret : MonoBehaviour
        if(other.gameObject.name.Contains("Bullet")){
          turretpieceone.SetActive(false);
           turrtepiecetwo.SetActive(false);
-          TurretFire.deadturret = true;
-          dead = true;
+           dead = true;
           blownup.Play();
        }
     }
