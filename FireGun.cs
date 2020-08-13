@@ -13,8 +13,7 @@ public class FireGun : MonoBehaviour
     public static bool lookingdown;
 
     public float shottimer = 0;
-    public float yholder = 0;
-
+ 
     public ParticleSystem explosion;
     public GameObject camerashaker;
 
@@ -35,9 +34,8 @@ public class FireGun : MonoBehaviour
             bool shaking = true;
             camerashakin.shakecamera(shaking);
              for(int i = 0; i < 5; i++){
-                rotationamount = (float) (449.239 + (i * 5));
-                yholder += (tempspawn.y + 10) ;
-               Instantiate(bullet, tempspawn, parent.transform.rotation * Quaternion.Euler (0f, 0,rotationamount));
+                rotationamount = (float) (440 + (i * 5));
+                Instantiate(bullet, tempspawn, parent.transform.rotation * Quaternion.Euler (0f, 0,rotationamount));
                explosion.Play();
             }
             shottimer = 0;
