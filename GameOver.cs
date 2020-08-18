@@ -11,6 +11,10 @@ public class GameOver : MonoBehaviour
     public static bool gameover = false;
     public GameObject player;
     public TextMeshProUGUI gameovertext;
+
+    public GameObject deathparticles;
+
+    private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +24,20 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(deathparticles.activeInHierarchy){
+            timer +=Time.deltaTime;
+        }
+        if(timer >= .3f){
+            player.SetActive(false);
+
+        }
         if (gameover)
         {
             heartone.GetComponent<SpriteRenderer>().color = Color.gray;
             heartwo.GetComponent<SpriteRenderer>().color = Color.gray;
             heartthree.GetComponent<SpriteRenderer>().color = Color.gray;
             gameovertext.text = "Game Over!";
-            player.SetActive(false);
+            deathparticles.SetActive(true);
         }
     }
 

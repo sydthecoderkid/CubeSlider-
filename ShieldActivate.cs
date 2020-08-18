@@ -53,9 +53,8 @@ public class ShieldActivate : MonoBehaviour
         else if(!Input.GetKey(KeyCode.Q)){
              shield.SetActive(false);
              shieldactive = false;
-             if(shielddrained){
-                 refillshield(shieldone.GetComponent<SpriteRenderer>().color);
-             }
+             
+              refillshield(shieldone.GetComponent<SpriteRenderer>().color);
          }
 
         if(forceimagefill == 0 ){
@@ -73,7 +72,7 @@ public class ShieldActivate : MonoBehaviour
        float colorb = currentspritecolor.b -  0.0007f;
         forceimage.fillAmount -= 0.001f;
 
-        Color darkercolor = new Color(originalcolor.r, colorg, colorb, originalcolor.a);
+        Color darkercolor = new Color(currentspritecolor.r, colorg, colorb, currentspritecolor.a);
         resetcolors(darkercolor);
        }
 

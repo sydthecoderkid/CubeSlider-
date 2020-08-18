@@ -42,7 +42,7 @@ public class TileType : MonoBehaviour
         else if (thistile == Tiletype.NormalTile)
         {
             SpriteRenderer thiscolor = this.GetComponent<SpriteRenderer>();
-            transform.position = new Vector2(this.transform.position.x, -4.03f);
+            transform.position = new Vector2(this.transform.position.x, -4f);
 
             thiscolor.color = new Color32(195, 195, 195, 255);
         }

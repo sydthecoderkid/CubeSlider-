@@ -9,21 +9,28 @@ public class OnShieldHit : MonoBehaviour
     private float timer; 
 
     private static Color originalcolor;
+
+     private static Color finalcolor;
+
      private static Color drainedcolor;
 
-     public static bool hitshield;
+     public static bool hitshield = false;
 
     // Start is called before the first frame update
     void Start()
     {
       originalcolor = new Color(0, 214,221);
+      finalcolor = new Color(0, 214,221);
       drainedcolor = new Color32(0, 19, 20, 255 );
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(ShieldActivate.forceimagefill == 1 && thisrenderer.color != finalcolor){
+          thisrenderer.color = finalcolor;
+
+        }
         
          if(thisrenderer.color == Color.green){
             timer += Time.deltaTime;
@@ -41,8 +48,9 @@ public class OnShieldHit : MonoBehaviour
                    thisrenderer.color = originalcolor; 
             }
 
-      else if(other.gameObject.name.Contains("Bullet") && !other.gameObject.name.Contains("Player")){
+      else if(other.gameObject.name.Contains("Bullet") && !other.gameObject.name.Contains("Player") && !ShieldActivate.shielddrained){
           hitshield = true;
+           originalcolor = thisrenderer.color;
             thisrenderer.color = Color.green;
             Destroy(other.gameObject);
           }
