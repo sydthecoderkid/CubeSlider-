@@ -51,6 +51,14 @@ public class ShieldActivate : MonoBehaviour
  
         
         forceimagefill = forceimage.fillAmount;
+
+        if(forceimagefill > 0 ){
+          shielddrained = false;
+        }
+
+        if(shieldcolorone.color == Color.green && shieldcolortwo.color == Color.green && shieldcolorthree.color ==Color.green){
+          Debug.Log("Threegreen");
+        }
         Color currentcolor = shieldone.GetComponent<SpriteRenderer>().color;
         if(Input.GetKey(KeyCode.Q) && !shielddrained){
             setparticles(true);
