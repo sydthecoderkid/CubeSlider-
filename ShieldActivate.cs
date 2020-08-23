@@ -30,71 +30,47 @@ public class ShieldActivate : MonoBehaviour
 
     private Color drainedcolor;
 
+    public SpriteRenderer shieldcolorone;
 
+    public SpriteRenderer shieldcolortwo;
 
+    public SpriteRenderer shieldcolorthree;
 
- 
-      // Start is called before the first frame update
     void Start()
     { 
-         originalcolor = new Color(0, 214,221);
-     }
+        originalcolor = new Color(0, 214,221);
+       
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(!OnShieldHit.hitshield){
-          if( shieldone.GetComponent<SpriteRenderer>().color == Color.green && shieldtwo.GetComponent<SpriteRenderer>().color == Color.green && shieldthree.GetComponent<SpriteRenderer>().color == Color.green)
-           resetcolors(originalcolor);
-        }
+      shieldcolorone = shieldone.GetComponent<SpriteRenderer>();
+      shieldcolortwo =  shieldtwo.GetComponent<SpriteRenderer>();
+      shieldcolorthree = shieldthree.GetComponent<SpriteRenderer>();
+ 
+        
         forceimagefill = forceimage.fillAmount;
-        if(Input.GetKey(KeyCode.Q) && forceimagefill > 0){
-             setparticles(true);
+        Color currentcolor = shieldone.GetComponent<SpriteRenderer>().color;
+        if(Input.GetKey(KeyCode.Q) && !shielddrained){
+            setparticles(true);
             shield.SetActive(true);
              shieldactive = true;
-             decreaseshield(shieldone.GetComponent<SpriteRenderer>().color);
-
+             decreaseshield(currentcolor);
         }
 
         else if(!Input.GetKey(KeyCode.Q)){
-             shield.SetActive(false);
-             shieldactive = false;
-            OnShieldHit.hitshield =false;
-              refillshield(shieldone.GetComponent<SpriteRenderer>().color);
-              OnShieldHit.hitshield = false;
-         }
-
-        if(forceimagefill == 0 ){
+            shieldactive = false;
+           shield.SetActive(false);
+           refillshield(currentcolor);
+        }
+         if(forceimagefill == 0 ){
                shieldactive = false;
               shielddrained = true;
              setparticles(false);
-        }
+              }
 
-          
-        
-    }
-
-   private void decreaseshield(Color currentspritecolor){
-       if(!OnShieldHit.hitshield){
-       float colorg = currentspritecolor.g -  0.0007f;
-       float colorb = currentspritecolor.b -  0.0007f;
-        forceimage.fillAmount -= 0.001f;
-
-        Color darkercolor = new Color(currentspritecolor.r, colorg, colorb, currentspritecolor.a);
-        resetcolors(darkercolor);
-       }
-
-   }
-
-
-    private void refillshield(Color currentspritecolor){
-        shielddrained = false;
-        float colorg = currentspritecolor.g +  0.0007f;
-       float colorb = currentspritecolor.b + 0.0007f;
-     forceimage.fillAmount  += 0.001f;
-      Color darkercolor = new Color(originalcolor.r, colorg, colorb, originalcolor.a);
-        resetcolors(darkercolor);
-     
+       
    }
 
    private void resetcolors(Color newcolor){
@@ -107,5 +83,28 @@ public class ShieldActivate : MonoBehaviour
        shieldoneparticles.SetActive(fillvalue);
        shieldtwoparticles.SetActive(fillvalue);
        shieldthreeparticles.SetActive(fillvalue);
+   }
+
+   private void decreaseshield(Color currentspritecolor){
+       if(!OnShieldHit.hitshield){
+       float colorg = currentspritecolor.g -  0.0007f;
+       float colorb = currentspritecolor.b -  0.0007f;
+        forceimage.fillAmount -= 0.001f;
+        Color darkercolor = new Color(currentspritecolor.r, colorg, colorb, currentspritecolor.a);
+        resetcolors(darkercolor);
+       }
+
+   }
+
+
+   
+    private void refillshield(Color currentspritecolor){
+        shielddrained = false;
+        float colorg = currentspritecolor.g +  0.0007f;
+       float colorb = currentspritecolor.b + 0.0007f;
+     forceimage.fillAmount  += 0.001f;
+      Color darkercolor = new Color(originalcolor.r, colorg, colorb, originalcolor.a);
+        resetcolors(darkercolor);
+     
    }
 }
