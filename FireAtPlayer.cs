@@ -40,8 +40,8 @@ public class FireAtPlayer : MonoBehaviour
 
         if (PlayerMovement.gamestarted)
         {
-            //transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 190)); 
+            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+            // For testing: transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 190)); 
         }
       
         //takes care of the shooting

@@ -19,10 +19,12 @@ public class TakeDamage : MonoBehaviour
     private Color originalcolor;
 
     private int timeshit = 0;
+    public OneHundredPopup thispopup;
     // Start is called before the first frame update
     void Start()
     {
         thisrenderer = Player.GetComponent<SpriteRenderer>();
+         
         originalcolor = thisrenderer.color;
     }
 
@@ -41,7 +43,7 @@ public class TakeDamage : MonoBehaviour
 
 private void OnTriggerEnter2D(Collider2D other) {
           if(other.gameObject.name.Contains("Bullet") && !other.gameObject.name.Contains("Player") && !ShieldActivate.shieldactive){
-             OneHundredPopup.playpointcounter("OwAnim");
+             thispopup.playowanim("OwAnim",2f);
             thisrenderer.color = Color.red;
              timeshit++;
              if(timeshit == 1){

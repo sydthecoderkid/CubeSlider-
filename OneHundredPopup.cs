@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OneHundredPopup : MonoBehaviour
 {
-    public static Animator popupanim; 
+    public Animator popupanim; 
     public GameObject popup;
 
-public static bool playingpopup; 
+public bool playingpopup; 
 
+ 
+
+ 
 private float timer; 
      // Start is called before the first frame update
     void Start()
     {
+         
         popupanim = popup.GetComponent<Animator>();
+        
         playingpopup = false;
     }
 
@@ -26,12 +32,22 @@ private float timer;
         }
 
         if(timer >= .5f){
-         //   popup.SetActive(false);
+         popup.SetActive(false);
+          
+         timer = 0;
         }
     }
 
-    public static void playpointcounter(string anim){
+    public  void playpointcounter(string anim, float timer){
           popupanim.Play(anim);
           playingpopup = true;
+      }
+
+      public void playowanim(string anim, float timer){
+          popupanim.Play("OwAnim");
      }
+
+     public void playturretanim(string anim, float timer){
+          popupanim.Play(anim);
+        }
 }

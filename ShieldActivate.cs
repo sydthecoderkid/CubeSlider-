@@ -28,6 +28,8 @@ public class ShieldActivate : MonoBehaviour
 
     public GameObject shieldthreeparticles;
 
+    private Color drainedcolor;
+
 
 
 
@@ -41,6 +43,10 @@ public class ShieldActivate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!OnShieldHit.hitshield){
+          if( shieldone.GetComponent<SpriteRenderer>().color == Color.green && shieldtwo.GetComponent<SpriteRenderer>().color == Color.green && shieldthree.GetComponent<SpriteRenderer>().color == Color.green)
+           resetcolors(originalcolor);
+        }
         forceimagefill = forceimage.fillAmount;
         if(Input.GetKey(KeyCode.Q) && forceimagefill > 0){
              setparticles(true);
@@ -64,6 +70,7 @@ public class ShieldActivate : MonoBehaviour
              setparticles(false);
         }
 
+          
         
     }
 

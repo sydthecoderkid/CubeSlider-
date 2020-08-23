@@ -23,7 +23,7 @@ public class TurretFire : MonoBehaviour
     void Update()
     {
          timer += Time.deltaTime;
-         if(timer >= 1 && PlayerMovement.gamestarted){
+         if(timer >= 1 && PlayerMovement.gamestarted && !GameOver.gameover){
         Vector2 tempspawn = new Vector2(shooter.transform.position.x, shooter.transform.position.y - 1);
      Instantiate(enemybullet, tempspawn, shooter.transform.rotation * Quaternion.Euler (0f, 0,180));
      timer = 0;

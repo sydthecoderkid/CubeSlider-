@@ -21,10 +21,12 @@ public class DestroyEnemy : MonoBehaviour
     private float oldy = 0;
 
 public GameObject barrel;
+
+public OneHundredPopup thispopup;
     // Start is called before the first frame update
     void Start()
     {
-        
+        thispopup = this.GetComponent<OneHundredPopup>();
     }
 
     // Update is called once per frame
@@ -54,7 +56,7 @@ public GameObject barrel;
            tophalf.SetActive(false);
            stock.SetActive(false);
            if(!playedcounter){
-           OneHundredPopup.playpointcounter("100Popup");
+           thispopup.playpointcounter("100Popup", .5f);
             playedcounter = true;
 
            }
