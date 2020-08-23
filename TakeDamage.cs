@@ -41,7 +41,8 @@ public class TakeDamage : MonoBehaviour
 
 private void OnTriggerEnter2D(Collider2D other) {
           if(other.gameObject.name.Contains("Bullet") && !other.gameObject.name.Contains("Player") && !ShieldActivate.shieldactive){
-             thisrenderer.color = Color.red;
+             OneHundredPopup.playpointcounter("OwAnim");
+            thisrenderer.color = Color.red;
              timeshit++;
              if(timeshit == 1){
                  darkenheart(heartone);

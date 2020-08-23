@@ -40,12 +40,12 @@ public class FireAtPlayer : MonoBehaviour
 
         if (PlayerMovement.gamestarted)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            // For testing: transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 190)); 
+            //transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 190)); 
         }
       
         //takes care of the shooting
-    if(PlayerMovement.gamestarted && timer >= .7f && !destroyenemyscript.dead && (this.transform.position.x - (player.transform.position.x) < 12)){
+    if(PlayerMovement.gamestarted && timer >= .7f && !destroyenemyscript.dead && (this.transform.position.x - (player.transform.position.x) < 12) && !GameOver.gameover){
              float rotationamount = -100;
              if(!PlayerMovement.candoublejump && !PlayerMovement.onground){
                  rotationamount = -110;
@@ -56,7 +56,7 @@ public class FireAtPlayer : MonoBehaviour
       Vector2 tempspawn = new Vector2(gunstock.transform.position.x, gunstock.transform.position.y);
       if(PlayerMovement.gamestarted){
      Instantiate(enemybullet, tempspawn, gunholder.transform.rotation * Quaternion.Euler (0f, 0,rotationamount ));
-   timer = 0;
+        timer = 0;
       }
    }
     }

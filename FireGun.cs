@@ -28,7 +28,7 @@ public class FireGun : MonoBehaviour
     void Update()
     {
         shottimer += Time.deltaTime;
-        if(Input.GetMouseButtonDown(1) && shottimer >= 0.2f){
+        if(Input.GetMouseButtonDown(1) && shottimer >= 0.2f && PlayerMovement.gamestarted){
             Vector2 tempspawn = new Vector2(gunstock.transform.position.x, gunstock.transform.position.y);
             float rotationamount = 0;
             bool shaking = true;

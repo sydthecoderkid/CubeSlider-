@@ -6,6 +6,8 @@ public class DestroyEnemy : MonoBehaviour
 {
     public GameObject thisenemy;
 
+    public bool playedcounter; 
+
     public ParticleSystem death;
 
     public GameObject tophalf;
@@ -51,6 +53,11 @@ public GameObject barrel;
             barrel.SetActive(false);
            tophalf.SetActive(false);
            stock.SetActive(false);
+           if(!playedcounter){
+           OneHundredPopup.playpointcounter("100Popup");
+            playedcounter = true;
+
+           }
                death.Play();           
 
            

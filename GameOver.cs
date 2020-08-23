@@ -27,7 +27,7 @@ public class GameOver : MonoBehaviour
         if(deathparticles.activeInHierarchy){
             timer +=Time.deltaTime;
         }
-        if(timer >= .3f){
+        if(timer >= .18f){
             player.SetActive(false);
 
         }

@@ -53,8 +53,9 @@ public class ShieldActivate : MonoBehaviour
         else if(!Input.GetKey(KeyCode.Q)){
              shield.SetActive(false);
              shieldactive = false;
-             
+            OnShieldHit.hitshield =false;
               refillshield(shieldone.GetComponent<SpriteRenderer>().color);
+              OnShieldHit.hitshield = false;
          }
 
         if(forceimagefill == 0 ){
