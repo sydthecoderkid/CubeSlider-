@@ -1,13 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class StartGame : MonoBehaviour
+public class TouchPlayer : MonoBehaviour
 {
-
-    public TextMeshProUGUI textmesh; 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +13,11 @@ public class StartGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && RestartGame.setup){
-             PlayerMovement.gamestarted =true;
-             textmesh.text = "";
-        }
+        
     }
+
+      private void OnCollisionEnter2D(Collision2D other) {
+          Destroy(other.gameObject);
+             GameOver.EndGame();
+      }
 }

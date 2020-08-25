@@ -39,7 +39,8 @@ public class ShieldActivate : MonoBehaviour
     void Start()
     { 
         originalcolor = new Color(0, 214,221);
-       
+        forceimage.fillAmount = 1;
+        
     }
 
     // Update is called once per frame
@@ -57,7 +58,8 @@ public class ShieldActivate : MonoBehaviour
         }
 
         if(shieldcolorone.color == Color.green && shieldcolortwo.color == Color.green && shieldcolorthree.color ==Color.green){
-          Debug.Log("Threegreen");
+          resetcolors(originalcolor);
+          forceimage.fillAmount =1;
         }
         Color currentcolor = shieldone.GetComponent<SpriteRenderer>().color;
         if(Input.GetKey(KeyCode.Q) && !shielddrained){
@@ -115,4 +117,5 @@ public class ShieldActivate : MonoBehaviour
         resetcolors(darkercolor);
      
    }
-}
+
+ }

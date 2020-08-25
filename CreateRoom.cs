@@ -14,7 +14,7 @@ public class CreateRoom : MonoBehaviour
 
     public GameObject lasttile;
 
-    private static bool roombuilt = false;
+    public static bool roombuilt = false;
 
     public GameObject[] tiles = new GameObject[4];
 

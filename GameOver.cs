@@ -14,7 +14,11 @@ public class GameOver : MonoBehaviour
 
     public GameObject deathparticles;
 
+    public GameObject restartbutton; 
+
     private float timer = 0;
+
+    public RestartGame gamerestarter;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +35,13 @@ public class GameOver : MonoBehaviour
             player.SetActive(false);
 
         }
-        if (gameover)
+        if (gameover && !RestartGame.gamerestarted)
         {
             heartone.GetComponent<SpriteRenderer>().color = Color.gray;
             heartwo.GetComponent<SpriteRenderer>().color = Color.gray;
             heartthree.GetComponent<SpriteRenderer>().color = Color.gray;
             gameovertext.text = "Game Over!";
+            restartbutton.SetActive(true);
             deathparticles.SetActive(true);
         }
     }

@@ -18,7 +18,7 @@ public class TakeDamage : MonoBehaviour
 
     private Color originalcolor;
 
-    private int timeshit = 0;
+    public static int timeshit = 0;
     public OneHundredPopup thispopup;
     // Start is called before the first frame update
     void Start()
