@@ -42,7 +42,8 @@ public class TakeDamage : MonoBehaviour
     }
 
 private void OnTriggerEnter2D(Collider2D other) {
-          if(other.gameObject.name.Contains("Bullet") && !other.gameObject.name.Contains("Player") && !ShieldActivate.shieldactive){
+          if(other.gameObject.name.Contains("Bullet") && !other.gameObject.name.Contains("Player")){
+              if(!ShieldActivate.shieldactive ||ShieldActivate.shielddrained){
              thispopup.playowanim("OwAnim",2f);
             thisrenderer.color = Color.red;
              timeshit++;
@@ -57,6 +58,7 @@ private void OnTriggerEnter2D(Collider2D other) {
                   GameOver.EndGame();
              }
               
+          }
           }
     }
 

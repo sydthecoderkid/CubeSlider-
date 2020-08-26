@@ -70,7 +70,8 @@ public class RestartGame : MonoBehaviour
       TakeDamage.timeshit = 0;
        PlayerMovement.gamestarted =false;
       CreateRoom.firstroom = true;
-      CreateRoom.roombuilt = false; 
+      CreateRoom.roombuilt = false;  
+      ShieldActivate.shielddrained = false;
        
  }
      
