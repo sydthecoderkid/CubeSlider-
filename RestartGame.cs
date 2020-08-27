@@ -74,6 +74,7 @@ public class RestartGame : MonoBehaviour
       ShieldActivate.shielddrained = false;
       PlayerMovement.playerspeed = 15;
       CameraMovement.movementspeed = 15;
+      PointCounter.totalpoints = 0;
        
  }
      

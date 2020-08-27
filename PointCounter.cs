@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PointCounter : MonoBehaviour
 {
+    public static int totalpoints; 
     // Start is called before the first frame update
     void Start()
     {

@@ -8,6 +8,8 @@ public class StartGame : MonoBehaviour
 
     public TextMeshProUGUI textmesh; 
 
+    public TextMeshProUGUI totalpoints;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class StartGame : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && RestartGame.setup){
              PlayerMovement.gamestarted =true;
              textmesh.text = "";
+             totalpoints.text = "";
         }
     }
 }

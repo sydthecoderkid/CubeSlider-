@@ -19,6 +19,8 @@ public class GameOver : MonoBehaviour
     private float timer = 0;
 
     public RestartGame gamerestarter;
+
+    public TextMeshProUGUI totalpoints;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,8 @@ public class GameOver : MonoBehaviour
             gameovertext.text = "Game Over!";
             restartbutton.SetActive(true);
             deathparticles.SetActive(true);
+            totalpoints.text = "Total Points: " + PointCounter.totalpoints;
+            
         }
     }
 

@@ -20,8 +20,7 @@ public class IncreaseSpeed : MonoBehaviour
         if(PlayerMovement.gamestarted){
             timer +=  Time.deltaTime;
              if(timer >= 45 && PlayerMovement.playerspeed < totalmovement && CameraMovement.movementspeed <totalmovement){
-                Debug.Log("Hit");
-                PlayerMovement.playerspeed +=5;
+                 PlayerMovement.playerspeed +=5;
                 CameraMovement.movementspeed +=5;
                 timer = 0;
             }

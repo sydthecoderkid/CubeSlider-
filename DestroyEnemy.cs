@@ -58,7 +58,7 @@ public OneHundredPopup thispopup;
            if(!playedcounter){
            thispopup.playpointcounter("100Popup", .5f);
             playedcounter = true;
-
+             PointCounter.totalpoints += 100;
            }
                death.Play();           
 
