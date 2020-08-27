@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     private static PlayerMovement reference = new PlayerMovement();
+
+    public static float movementspeed = 15; 
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,7 @@ public class CameraMovement : MonoBehaviour
          
         if (PlayerMovement.gamestarted && !GameOver.gameover)
         {
-          this.transform.Translate(Vector2.right * (Time.deltaTime * 15f));
+          this.transform.Translate(Vector2.right * (Time.deltaTime * movementspeed));
 
         }
     }

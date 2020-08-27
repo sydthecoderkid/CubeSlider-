@@ -16,6 +16,10 @@ public class TakeDamage : MonoBehaviour
 
     private float timer; 
 
+     private float timebetweenhits; 
+
+     private bool canbehit;
+
     private Color originalcolor;
 
     public static int timeshit = 0;
@@ -39,6 +43,14 @@ public class TakeDamage : MonoBehaviour
             timer = 0;
             thisrenderer.color = originalcolor;
         }
+
+        if(!canbehit){
+            timebetweenhits += Time.deltaTime;
+        }
+        if(timebetweenhits >= 0.3f){
+            canbehit = true;
+            timebetweenhits = 0;
+        }
     }
 
 private void OnTriggerEnter2D(Collider2D other) {
@@ -46,14 +58,19 @@ private void OnTriggerEnter2D(Collider2D other) {
               if(!ShieldActivate.shieldactive ||ShieldActivate.shielddrained){
              thispopup.playowanim("OwAnim",2f);
             thisrenderer.color = Color.red;
-             timeshit++;
+            if(canbehit){
+              timeshit++;
+
+            }
              if(timeshit == 1){
                  darkenheart(heartone);
+                canbehit = false;
               }
-             else if(timeshit == 2){
+              if(timeshit == 2 && canbehit){
                  darkenheart(hearttwo);
+                 canbehit = false;
               }
-             else if(timeshit ==3){
+              if(timeshit ==3 && canbehit){
                   darkenheart(heartthree);
                   GameOver.EndGame();
              }

@@ -72,6 +72,8 @@ public class RestartGame : MonoBehaviour
       CreateRoom.firstroom = true;
       CreateRoom.roombuilt = false;  
       ShieldActivate.shielddrained = false;
+      PlayerMovement.playerspeed = 15;
+      CameraMovement.movementspeed = 15;
        
  }
      

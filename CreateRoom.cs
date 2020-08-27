@@ -32,17 +32,39 @@ public class CreateRoom : MonoBehaviour
     public GameObject shooterone;
 
     public GameObject shootertwo;
+
+    private GameObject roomspawned;
+
+    public bool changedcolor = false; 
+
+    public bool madearoom = false; 
+
+    public GameObject thisbackground; 
+
+    public float redcolor;
+
+    public float bluecolor;
+
+    public float greencolor;
     // Start is called before the first frame update
     void Start()
     {
+        changedcolor = false;
         turret.SetActive(false);
         turrettwo.SetActive(false);
         shooterone.SetActive(false);
         shootertwo.SetActive(false);
+        madearoom=false;
+       
+        Color pickedcolor = RandomColors.selectcolor();
+
+         thisbackground.GetComponent<SpriteRenderer>().color = pickedcolor;
+
         if (!firstroom)
         {
             createtiles();
             spawnturrets();
+            
         }
         
         
@@ -67,28 +89,32 @@ public class CreateRoom : MonoBehaviour
     void Update()
     {
          
-        if(playepos.transform.position.x > (this.transform.position.x) && PlayerMovement.gamestarted)
-        {
-            makeroom();
-        }
 
-       if(roombuilt && playepos.transform.position.x > lasttile.transform.position.x + 8) //Last tile plus 8 to make sure the player doesn't see the room being destroyed
-        {
-            Destroy(thisroom);
-            roombuilt = false;
-
+        
+       if( playepos.transform.position.x > lasttile.transform.position.x - 40 && !madearoom && PlayerMovement.gamestarted){
+             makeroom();
         }
+ 
+ 
+       if( playepos.transform.position.x > lasttile.transform.position.x + 60) //Last tile plus 8 to make sure the player doesn't see the room being destroyed
+        { 
+             Destroy(thisroom);
+ 
+        }
+        
     }
 
      
     public void makeroom()
     {
-        if (!roombuilt)
+        if (!madearoom)
         {
+            madearoom = true;
+           roombuilt = true;
             Vector2 newroompos = new Vector2(lasttile.transform.position.x + 15, roomprefab.transform.position.y);
-            Instantiate(roomprefab, newroompos, Quaternion.identity);
+           roomspawned = Instantiate(roomprefab, newroompos, Quaternion.identity);
+           
             firstroom = false;
-            roombuilt = true;
         }
     }
 
