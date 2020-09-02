@@ -98,9 +98,9 @@ public class DialogScript : MonoBehaviour
            messages.Add(this.thirdmessage = "Second of all. Right click to shoot your badass shotgun.");
            messages.Add("Third of all. There are gonna be some bad guys. Shoot em. I swear It's legal.");
            messages.Add("Fourth of all. They can shoot too. So hold q, and pull up your shield.");
+           messages.Add("Your shield will ding when it's full.");
            messages.Add("Just be sure to watch the bar in the top left. If it runs out, your shield'll go dark.");
            messages.Add("And if that happens, the bad dudes can shoot you.");
-
             messages.Add("I think that's it. You can hit escape and head back to the main menu now. But... ");
              messages.Add("Thanks for playing. I really appreciate it. :) ");
              messages.Add("okaygonow");

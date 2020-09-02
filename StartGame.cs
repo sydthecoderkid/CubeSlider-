@@ -21,7 +21,7 @@ public class StartGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && RestartGame.setup && !PauseGame.paused){
+        if(Input.GetMouseButtonDown(0) && RestartGame.setup && !PauseGame.paused && !PlayerMovement.gamestarted){
              PlayerMovement.gamestarted =true;
              textmesh.text = "";
              totalpoints.text = "";

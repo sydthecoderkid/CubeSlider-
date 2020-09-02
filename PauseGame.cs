@@ -23,16 +23,25 @@ public class PauseGame : MonoBehaviour
                 pausemenu.SetActive(true);
                 PlayerMovement.gamestarted = false;
                 paused = true;
+                if(PlayerMovement.playercomponent != null){
                 PlayerMovement.playercomponent.constraints = RigidbodyConstraints2D.FreezePositionY;
+                }
+                else{
+                    TutorialMovement.playercomponent.constraints = RigidbodyConstraints2D.FreezePositionY;
+                }
         }
 
         else if(Input.GetKeyDown(KeyCode.Escape) && pausemenu.activeInHierarchy){
             pausemenu.SetActive(false);
             PlayerMovement.gamestarted = true;
-             PlayerMovement.playercomponent.constraints = RigidbodyConstraints2D.None;
-
+       
+                 if(PlayerMovement.playercomponent != null){
                 PlayerMovement.playercomponent.constraints = RigidbodyConstraints2D.FreezeRotation;
+                 }
 
+                 else{
+                      TutorialMovement.playercomponent.constraints = RigidbodyConstraints2D.FreezeRotation;
+                 }
             paused = false;
         }
         

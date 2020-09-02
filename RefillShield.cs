@@ -17,6 +17,9 @@ public class RefillShield : MonoBehaviour
      public static Color shieldthreecolor;
       public static Color shieldtwocolor;
 
+      public AudioSource shieldrefilled; 
+
+      public static bool filled; 
  
     // Start is called before the first frame update
     void Start()
@@ -27,7 +30,12 @@ public class RefillShield : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(forceimage.fillAmount == 1 && !filled){
+           if(!shieldrefilled.isPlaying){
+              shieldrefilled.Play();
+              filled = true; 
+            }
+        }
         if(!Input.GetKey(KeyCode.Q)){
                 shieldthreecolor = shieldthree.GetComponent<SpriteRenderer>().color;
                 if(PlayerMovement.gamestarted){

@@ -48,8 +48,7 @@ public class DestroyTurret : MonoBehaviour
           blownup.Play();
           deathnoise.Play();
           canvas.SetActive(true);
-            thisfire.blownup = true;
-            thispopup.playturretanim(animname, 1.5f);
+             thispopup.playturretanim(animname, 1.5f);
             
        }
     }

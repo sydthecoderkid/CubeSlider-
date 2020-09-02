@@ -24,6 +24,8 @@ public class TutorialMovement : MonoBehaviour
 
 
     public static float playerx;
+
+    public AudioSource jump; 
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,7 @@ public class TutorialMovement : MonoBehaviour
             {
                  if (onground)
                 {
+                      jump.Play();
                     playercomponent.AddForce(transform.up * thrust);
                     jumped = true;
                     canjump = false;
@@ -62,6 +65,7 @@ public class TutorialMovement : MonoBehaviour
 
                else if(!onground && candoublejump)
                 {
+                      jump.Play();
                     playercomponent.velocity = new Vector2(playercomponent.velocity.x, 0);
                     
                         playercomponent.AddForce(transform.up * (thrust + 150));

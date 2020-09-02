@@ -61,7 +61,7 @@ public class DecreaseShield : MonoBehaviour
    }
 
    private void decreaseshield(Color currentspritecolor){
-       
+         RefillShield.filled = false;
        if(forceimage.fillAmount == 0){
            ShieldActivate.shieldactive = false;
            ShieldActivate.shielddrained = true;

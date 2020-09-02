@@ -16,6 +16,8 @@ public class OnShieldHit : MonoBehaviour
 
      public static bool hitshield = false;
 
+     public AudioSource shieldhit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,9 @@ public class OnShieldHit : MonoBehaviour
              originalcolor = thisrenderer.color;
              RefillShield.precolor = originalcolor;
             thisrenderer.color = Color.green;
+            if(!shieldhit.isPlaying){
+              shieldhit.Play();
+            }
             hitshield = true;
              Destroy(other.gameObject);
           }
