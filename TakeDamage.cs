@@ -24,6 +24,10 @@ public class TakeDamage : MonoBehaviour
 
     public static int timeshit = 0;
     public OneHundredPopup thispopup;
+
+    public AudioSource playerhurt;
+
+     public AudioSource playerdeath;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,19 +64,22 @@ private void OnTriggerEnter2D(Collider2D other) {
             thisrenderer.color = Color.red;
             if(canbehit){
               timeshit++;
-
+               
             }
              if(timeshit == 1){
                  darkenheart(heartone);
                 canbehit = false;
+                playerhurt.Play();
               }
               if(timeshit == 2 && canbehit){
                  darkenheart(hearttwo);
                  canbehit = false;
+                 playerhurt.Play();
               }
               if(timeshit ==3 && canbehit){
                   darkenheart(heartthree);
                   GameOver.EndGame();
+                  playerdeath.Play();
              }
               
           }

@@ -13,6 +13,8 @@ public class TileType : MonoBehaviour
     public static bool destroyenemy = false;
     private GameObject enemyclone;
 
+    public AudioSource lavasound; 
+
     public enum Tiletype
     {
         LavaTile,
@@ -73,7 +75,9 @@ public class TileType : MonoBehaviour
         if (islava && collision.gameObject.tag.Equals("Player"))
         {
              GameOver.EndGame();
-
+            if(!lavasound.isPlaying){
+                lavasound.Play();
+            }
         }
     }
 

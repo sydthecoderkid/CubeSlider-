@@ -18,6 +18,7 @@ public class OnGround : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        TutorialMovement.onground = true;
         PlayerMovement.onground = true;
     }
 
@@ -25,6 +26,7 @@ public class OnGround : MonoBehaviour
     {
         if (PlayerMovement.jumped )
         {
+             TutorialMovement.onground = false;
             PlayerMovement.onground = false;
         }
 

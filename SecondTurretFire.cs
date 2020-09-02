@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretFire : MonoBehaviour
+public class SecondTurretFire : MonoBehaviour
 {
     GameObject player; 
 
@@ -14,9 +14,10 @@ public class TurretFire : MonoBehaviour
  
     float timer;
 
-     public bool blownup;
+ 
+    private bool fired; 
 
-     public GameObject holder; 
+    public bool blownup;
 
      // Start is called before the first frame update
     void Start()
@@ -29,24 +30,21 @@ public class TurretFire : MonoBehaviour
     void Update()
     {
          timer += Time.deltaTime;
-          if(timer >= 1 && PlayerMovement.gamestarted && !GameOver.gameover && holder.activeInHierarchy && !blownup){
+         if(timer >= 1 && PlayerMovement.gamestarted && !GameOver.gameover && !blownup){
         Vector2 tempspawn = new Vector2(shooter.transform.position.x, shooter.transform.position.y - 1);
          Instantiate(enemybullet, tempspawn, shooter.transform.rotation * Quaternion.Euler (0f, 0,180));
+         fired = true;
               timer = 0;
-              if(!turretfire.isPlaying){
-              turretfire.Play();
-              }
-          }
+         }
 
-         
-        
-
-          
+         if(fired){
+             turretfire.Play();
+             fired = false;
+         }
 
          
      }
 
-    
      
      
        

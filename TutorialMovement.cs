@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class TutorialMovement : MonoBehaviour
 {
      public static Rigidbody2D playercomponent = new Rigidbody2D();
 
@@ -24,32 +24,17 @@ public class PlayerMovement : MonoBehaviour
 
 
     public static float playerx;
-
-    public AudioSource jump;
-
-
     // Start is called before the first frame update
     void Start()
     {
          playercomponent = GetComponent<Rigidbody2D>(); 
-           
+         PlayerMovement.gamestarted = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-         if(this.transform.position.y < playery)
-        {
-            playercomponent.gravityScale = 5f;
-        }
-
-        playerx = playercomponent.transform.position.x;
-
-        if (gamestarted && !GameOver.gameover){
-
-         this.transform.Translate(Vector2.right * (Time.deltaTime * playerspeed)); //This line moves theplayer
-
+        
             if (onground)
             {
                  canjump = true;
@@ -63,17 +48,11 @@ public class PlayerMovement : MonoBehaviour
 
             }
 
-           
 
-
-         
-
-
-            if (Input.GetMouseButtonDown(0) && gamestarted || Input.GetKeyDown(KeyCode.Space) && gamestarted)
+             if (Input.GetMouseButtonDown(0) && PlayerMovement.gamestarted|| Input.GetKeyDown(KeyCode.Space) && PlayerMovement.gamestarted)
             {
-                if (onground)
+                 if (onground)
                 {
-                    jump.Play();
                     playercomponent.AddForce(transform.up * thrust);
                     jumped = true;
                     canjump = false;
@@ -83,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
 
                else if(!onground && candoublejump)
                 {
-                    jump.Play();
                     playercomponent.velocity = new Vector2(playercomponent.velocity.x, 0);
                     
                         playercomponent.AddForce(transform.up * (thrust + 150));
@@ -93,15 +71,5 @@ public class PlayerMovement : MonoBehaviour
                 }
 
             }
-
-            
-        }
-
-        
     }
-    
-    
-
-   
-   
 }

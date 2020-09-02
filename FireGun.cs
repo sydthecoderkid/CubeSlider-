@@ -18,6 +18,8 @@ public class FireGun : MonoBehaviour
     public GameObject camerashaker;
 
     public CameraShake camerashakin;
+
+    public AudioSource playerfire;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class FireGun : MonoBehaviour
             camerashakin.shakecamera(shaking);
              for(int i = 0; i < 5; i++){
                 rotationamount = (float) (440 + (i * 5));
+                playerfire.Play();
                 Instantiate(bullet, tempspawn, parent.transform.rotation * Quaternion.Euler (0f, 0,rotationamount));
                explosion.Play();
             }

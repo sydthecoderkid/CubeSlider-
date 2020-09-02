@@ -30,7 +30,9 @@ public class RefillShield : MonoBehaviour
         
         if(!Input.GetKey(KeyCode.Q)){
                 shieldthreecolor = shieldthree.GetComponent<SpriteRenderer>().color;
+                if(PlayerMovement.gamestarted){
                 refillshield(shieldthreecolor);
+                }
         }
     }
  private void refillshield(Color currentspritecolor){

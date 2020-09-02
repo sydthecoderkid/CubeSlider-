@@ -28,6 +28,8 @@ public class RestartGame : MonoBehaviour
     private bool countdown = false; 
 
     public static bool setup;
+
+    public AudioSource restartbuttonaudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +60,7 @@ public class RestartGame : MonoBehaviour
          text.text = "";
          restartbuttonobj.SetActive(false);
          gamerestarted = true;
+         restartbuttonaudio.Play();
           fadein.Play("FadeIn");
           countdown = true; 
           

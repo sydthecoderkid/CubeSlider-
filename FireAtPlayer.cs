@@ -18,12 +18,15 @@ public class FireAtPlayer : MonoBehaviour
       public GameObject thisenemy;
 
 
+        public AudioSource fire;
+
     float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
        player = GameObject.FindGameObjectWithTag("Player");
         destroyenemyscript = thisenemy.GetComponent<DestroyEnemy>();
+        fire = GameObject.FindGameObjectWithTag("Sound").transform.Find("EnemyFire").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -56,6 +59,11 @@ public class FireAtPlayer : MonoBehaviour
       Vector2 tempspawn = new Vector2(gunstock.transform.position.x, gunstock.transform.position.y);
       if(PlayerMovement.gamestarted){
      Instantiate(enemybullet, tempspawn, gunholder.transform.rotation * Quaternion.Euler (0f, 0,rotationamount ));
+        
+      
+            fire.Play();
+        
+        
         timer = 0;
       }
    }

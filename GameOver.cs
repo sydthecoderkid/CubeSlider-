@@ -21,6 +21,8 @@ public class GameOver : MonoBehaviour
     public RestartGame gamerestarter;
 
     public TextMeshProUGUI totalpoints;
+
+    public AudioSource lavasound; 
     // Start is called before the first frame update
     void Start()
     {
