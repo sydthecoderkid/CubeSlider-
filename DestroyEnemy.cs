@@ -48,7 +48,7 @@ public OneHundredPopup thispopup;
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-       if(other.gameObject.name.Contains("Bullet")){
+       if(other.gameObject.name.Contains("Bullet") && !dead){
 
            dead = true;
            thisenemy.gameObject.GetComponent<Collider2D>().enabled = false;

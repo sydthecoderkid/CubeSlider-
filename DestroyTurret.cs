@@ -38,7 +38,7 @@ public class DestroyTurret : MonoBehaviour
     }
 
       private void OnCollisionEnter2D(Collision2D other) {
-       if(other.gameObject.name.Contains("Bullet")){
+       if(other.gameObject.name.Contains("Bullet") && !dead){
          shooter.SetActive(false);
           turrtepiecetwo.SetActive(false);
           if(!dead){
