@@ -24,8 +24,8 @@ public class PauseGame : MonoBehaviour
                 PlayerMovement.gamestarted = false;
                 paused = true;
                 if(PlayerMovement.playercomponent != null){
-                PlayerMovement.playercomponent.constraints = RigidbodyConstraints2D.FreezePositionY;
-                }
+                PlayerMovement.playercomponent.constraints = RigidbodyConstraints2D.FreezeAll;
+                 }
                 else{
                     TutorialMovement.playercomponent.constraints = RigidbodyConstraints2D.FreezePositionY;
                 }

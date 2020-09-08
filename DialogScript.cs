@@ -101,7 +101,8 @@ public class DialogScript : MonoBehaviour
            messages.Add("Your shield will ding when it's full.");
            messages.Add("Just be sure to watch the bar in the top left. If it runs out, your shield'll go dark.");
            messages.Add("And if that happens, the bad dudes can shoot you.");
-            messages.Add("I think that's it. You can hit escape and head back to the main menu now. But... ");
+             messages.Add("One more thing! The lava will pull you down if you get close. Stay away.");
+            messages.Add("I think that's it. You can head back to the main menu now. But... ");
              messages.Add("Thanks for playing. I really appreciate it. :) ");
              messages.Add("okaygonow");
             this.currentmessage = this.firstmessage;

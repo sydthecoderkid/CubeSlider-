@@ -12,6 +12,8 @@ public class StartGame : MonoBehaviour
 
 
     public AudioSource select;
+
+    public static int timesclicked = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +23,13 @@ public class StartGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && RestartGame.setup && !PauseGame.paused && !PlayerMovement.gamestarted){
+        
+        if( Input.GetMouseButtonDown(0) && RestartGame.setup && !PauseGame.paused && !PlayerMovement.gamestarted){
              PlayerMovement.gamestarted =true;
              textmesh.text = "";
              totalpoints.text = "";
              select.Play();
+             timesclicked = 0;
         }
     }
 }

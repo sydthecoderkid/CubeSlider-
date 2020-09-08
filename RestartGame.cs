@@ -66,9 +66,9 @@ public class RestartGame : MonoBehaviour
           
   }
 
- public void resetvalues(){
+ public static void resetvalues(){
      setup = false;
-     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+     SceneManager.LoadScene("GameScene");
       GameOver.gameover =false;
       TakeDamage.timeshit = 0;
        PlayerMovement.gamestarted =false;
@@ -77,8 +77,9 @@ public class RestartGame : MonoBehaviour
       ShieldActivate.shielddrained = false;
       PlayerMovement.playerspeed = 15;
       CameraMovement.movementspeed = 15;
+        StartGame.timesclicked = 0;
       PointCounter.totalpoints = 0;
-       
+       PauseGame.paused = false;
  }
      
 

@@ -32,7 +32,10 @@ public class RandomMusic : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 3 && !currentsong.isPlaying){
+        if(!ToggleMusic.musicison){
+            currentsong.Stop();
+        }
+        if(timer > 3 && !currentsong.isPlaying && ToggleMusic.musicison){
               currentsong = randomsong();
                currentsong.Play();
                 timer = 0;
