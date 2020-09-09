@@ -33,7 +33,6 @@ public class DialogScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         
                this.loadmessages();
       
     }
@@ -92,7 +91,7 @@ public class DialogScript : MonoBehaviour
     }
 
     public void loadmessages(){
-       
+        /*
          messages.Add( this.firstmessage = "Hey. I'm gonna give you some tips.");
           messages.Add(this.secondmessage= "First of all. Left click to jump. Or use spacebar, up to you. Click twice to double jump.");
            messages.Add(this.thirdmessage = "Second of all. Right click to shoot your badass shotgun.");
@@ -102,11 +101,16 @@ public class DialogScript : MonoBehaviour
            messages.Add("Just be sure to watch the bar in the top left. If it runs out, your shield'll go dark.");
            messages.Add("And if that happens, the bad dudes can shoot you.");
              messages.Add("One more thing! The lava will pull you down if you get close. Stay away.");
-            messages.Add("I think that's it. You can head back to the main menu now. But... ");
+            messages.Add("I think that's it. You can head back to the main menu now, or hang out and enjoy the tunes. But... ");
              messages.Add("Thanks for playing. I really appreciate it. :) ");
              messages.Add("okaygonow");
-            this.currentmessage = this.firstmessage;
-      
+      */
+
+      messages.Add(this.firstmessage = "Hey man.");
+      messages.Add(this.secondmessage ="Wanna see a dope trailer for a tiny cube?");
+      messages.Add(this.thirdmessage = "I'm sure you do.");
+      messages.Add("Let's kick it.");
+      this.currentmessage = this.firstmessage;
 
     }
 }
